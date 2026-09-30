@@ -54,8 +54,11 @@ func generateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	end := start + count - 1
+	filename := fmt.Sprintf("Phones-Pool_%d-%d.csv", start, end)
+
 	w.Header().Set("Content-Type", "text/csv; charset=utf-8")
-	w.Header().Set("Content-Disposition", `attachment; filename="NEW-Pool.csv"`)
+	w.Header().Set("Content-Disposition", fmt.Sprintf(`attachment; filename="%s"`, filename))
 	if err := WritePool(w, start, count); err != nil {
 		log.Println("generate error:", err)
 	}
