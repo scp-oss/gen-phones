@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Генератор номеров (NEW-Pool.csv)</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, sans-serif; max-width: 480px; margin: 48px auto; padding: 0 16px; }
+  h1 { font-size: 1.25rem; }
+  label { display: block; margin-top: 16px; font-weight: 600; }
+  input { width: 100%; box-sizing: border-box; padding: 8px; margin-top: 4px; font-size: 1rem; }
+  button { margin-top: 24px; padding: 10px 20px; font-size: 1rem; cursor: pointer; }
+  .hint { color: #666; font-size: 0.85rem; margin-top: 4px; }
+  .error { color: #c0392b; margin-top: 16px; }
+</style>
+</head>
+<body>
+  <h1>Генератор номеров (NEW-Pool.csv)</h1>
+  <form action="/generate" method="post">
+    <label for="start">Начальный номер</label>
+    <input type="text" inputmode="numeric" pattern="[0-9]+" id="start" name="start" placeholder="например 2358" required>
+    <div class="hint">Любое число цифр, может начинаться с любой цифры.</div>
+
+    <label for="count">Сколько номеров сгенерировать</label>
+    <input type="number" min="1" step="1" id="count" name="count" placeholder="например 148" required>
+
+    <button type="submit">Сгенерировать и скачать CSV</button>
+  </form>
+</body>
+</html>
